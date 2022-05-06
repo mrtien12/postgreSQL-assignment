@@ -21,7 +21,8 @@ select count(BusinessEntityID) from HumanResources.Employee
 -- After that we can see that OrderQty is number of the product that sold  with a SalesOrderID trait that link to Sales.SalesOrderDetail
 -- and next we join the Sales.Customer as we have CustomerID as a key for Sales.Customer as well 
 -- and finish by joining person.person table as we have PersonId trait equal to BusinessEntity
-alter table add FullName nvarchar(150) null 
+alter table Person.Person
+add FullName nvarchar(150) null 
 update Person.Person
 set fullname = rtrim(concat(FirstName + ' ', MiddleName + ' ', LastName + ' '))
 select d.FullName,count(OrderQty) as quantity from Sales.SalesOrderDetail as a
